@@ -1,0 +1,8 @@
+#generating a random image
+import numpy as np
+import cv2
+#read the images
+grey_img=np.random.randint(0,255,size=(300,600,3))
+iswritten=cv2.imwrite("D:/7112/image-cropped-8x10.jpg",grey_img)
+if iswritten:
+    print("the image is successfully saved.")
