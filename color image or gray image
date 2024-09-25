@@ -1,0 +1,20 @@
+#reading an image
+#storing an image in color if 'c' is pressed
+#storing the image in gray if 'g' is pressed
+import cv2
+#reading the color and gray image
+color_img=cv2.imread("D:/7112/Lenna_(test_image).png")
+gray_img=cv2.imread("D:/7112/Lenna_(test_image).png",0)
+  #display the image
+cv2.imshow("image",color_img)
+  # storing the key pressed by user
+k = cv2.waitKey(0)
+  #checks if the user hit 'c' or 'g'
+if(k == ord('c')):
+    cv2.imwrite("D:/7112/image-cropped-8x101.jpg",color_img)
+    print("image is saved in color")
+    cv2.destroyAllWindows()
+if(k == ord('g')):
+    cv2.imwrite("D:/7112/image-cropped-8x102.jpg",gray_img)
+    print("image is saved in garyscale")
+    cv2.destroyAllWindows()
