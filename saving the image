@@ -1,0 +1,12 @@
+#reading an image
+#if 's' is pressed save the image
+#if 'esc' is pressed it will exit the image without saving
+import cv2
+img = cv2.imread("D:/7112/lenna.jpg",cv2.IMREAD_COLOR)
+cv2.imshow("image",img)
+k = cv2.waitKey(0)
+if k == 27:
+    cv2.destroyAllWindows()
+elif k == ord('s'):
+    cv2.imwrite("D:/7112/lennaa.jpg",img)
+    cv2.destroyAllWindows()
