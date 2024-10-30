@@ -1,0 +1,26 @@
+#aim:program to convert a colored image by applying difference thresholding techniques using matplotlib
+
+#organizing imports 
+import cv2
+import matplotlib.pyplot as plt
+#load the input image
+img=cv2.imread("D:/3011/rgb.png")
+#convert BGR to RGB to display using matplotlib
+imgRGB=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+#to convert the image in grayscale
+gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+#applying different thresholding with threshold value=120
+ret,thresh1=cv2.threshold(gray,120,255,cv2.THRESH_BINARY)
+ret,thresh2=cv2.threshold(gray,120,255,cv2.THRESH_BINARY_INV)
+ret,thresh3=cv2.threshold(gray,120,255,cv2.THRESH_TRUNC)
+ret,thresh4=cv2.threshold(gray,120,255,cv2.THRESH_TOZERO)
+ret,thresh5=cv2.threshold(gray,120,255,cv2.THRESH_TOZERO_INV)
+#display original,grayscale and binary images
+plt.subplot(331),plt.imshow(imgRGB,cmap='gray'),plt.title('original image'),plt.axis('off')
+plt.subplot(332),plt.imshow(gray,cmap='gray'),plt.title('grayscale image'),plt.axis('off')
+plt.subplot(333),plt.imshow(thresh1,cmap='gray'),plt.title('binary threshold image'),plt.axis('off')
+plt.subplot(334),plt.imshow(thresh2,cmap='gray'),plt.title('binary threshold inverted'),plt.axis('off')
+plt.subplot(335),plt.imshow(thresh3,cmap='gray'),plt.title('truncated threshold'),plt.axis('off')
+plt.subplot(336),plt.imshow(thresh4,cmap='gray'),plt.title('set to 0 '),plt.axis('off')
+plt.subplot(337),plt.imshow(thresh5,cmap='gray'),plt.title('set to 0 inverted'),plt.axis('off')
+plt.show()
