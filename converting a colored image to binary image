@@ -1,0 +1,16 @@
+#importing cv2
+import cv2
+import matplotlib.pyplot as plt
+#reading an image
+image=cv2.imread("C:/7112/image-cropped-8x10.jpg")
+image=cv2.cvtColor(image,cv2.COLOR_BGR2RGB)         
+#displaying the original image
+plt.imshow(image)
+#converting into grayscale
+gray_image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+#displaying the converted image
+plt.imshow(gray_image,cmap='gray')
+#converting to binary image using threshold
+(thresh,binary_image)=cv2.threshold(gray_image,175,255,cv2.THRESH_BINARY)
+#displaying binary image
+plt.imshow(binary_image,cmap='gray')
