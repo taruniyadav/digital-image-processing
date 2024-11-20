@@ -19,15 +19,15 @@ def thres_finder(img,thres=20,delta_T=1.0):
         return thres_finder(img,thres=new_thres,delta_T=1.0)
     
     #load an image in the greyscale
-    img=cv2.imread("C:/7112/images.jfif",cv2.IMREAD_GRAYSCALE)
+img=cv2.imread("C:/7112/images.jfif",cv2.IMREAD_GRAYSCALE)
     
     #apply threshold finder
-    vv1=thres_finder(img,thres=30,delta_T=1.0)
+vv1=thres_finder(img,thres=30,delta_T=1.0)
     
     #threshold the image
-    ret,thresh=cv2.threshold(img,vv1,255,cv2.THRESH_BINARY)
+ret,thresh=cv2.threshold(img,vv1,255,cv2.THRESH_BINARY)
     
     #display the image side by side
-    out=cv2.hconcat([img,thresh])
-    cv2.imshow('threshold',out)
-    cv2.waitKey(0)
+out=cv2.hconcat([img,thresh])
+cv2.imshow('threshold',out)
+cv2.waitKey(0)
