@@ -1,0 +1,21 @@
+import cv2
+import numpy as np
+input_img=cv2.imread("C:/7112/images.png",1)#color image
+
+#define a 3*3 matrix of ones usingthe np.ones() function,which will be used as the kernel for erosion
+kernel=np.ones((3,3),np.uint8)
+
+#perform erosion
+#specify the number of the iterations as 1, which determines the extent of erosion. higher values of iterations will result in a greater erosion of image
+eroded_image=cv2.erode(input_img,kernel,iterations=1)
+cv2.imshow('Input_image',input_img)
+cv2.imshow('Eroded image',eroded_image)
+cv2.waitKey(0)
+img=cv2.imread("C:/7112/images.png")
+
+#define a 5*5 rectangular structuring element using the Numpy library
+kernel=np.ones((5,5),np.uint8)
+dilated_img=cv2.dilate(img,kernel,iterations=1)
+cv2.imshow('Dilated image',dilated_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
