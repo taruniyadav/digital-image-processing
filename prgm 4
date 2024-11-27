@@ -1,0 +1,17 @@
+import cv2
+import numpy as np
+#load the image and convert to grayscale
+image = cv2.imread("C:/7112/image.jpeg")
+gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+#compute the discrete cosine transform of the image
+dctimg = cv2.dct(np.float32(gray),cv2.DCT_INVERSE) 
+#inverse dct
+idctimg = cv2.idct(dctimg)
+#convert to uint8
+idct=np.uint8(idctimg)
+#display the results
+cv2.imshow("original image",gray)
+cv2.imshow("cosine tranform",dctimg)
+cv2.imshow("inverse cosine spectrum",idct)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
